@@ -36,8 +36,8 @@ const Main = () => {
   return (
     <div className='w-full h-[550px] text-white'>
       <div className='w-full h-full'>
-        <div className='absolute w-full h-full bg-gradient-to-r from-black'/>
-        <img className='w-full h-full' src={movie?.backdrop_path} alt={movie?.original_title+" backdrop"} />
+        <div className='absolute w-full h-[550px] bg-gradient-to-r from-black'/>
+        <img className='w-full h-[550px]' src={movie?.backdrop_path} alt={movie?.title+" backdrop"} />
         <div className='absolute w-full top-40 p-4 md:p-8'>
           <h1 className='text-3xl md:text-5xl font-bold '>{movie?.original_title}</h1>
           <div className='my-4'>
