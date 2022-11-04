@@ -17,16 +17,16 @@ const Row = ({ title, rowId }) => {
   const [like, setLike] = useState(false);
 
   // fetched data for popular movies ============================================
-  // useEffect( ()=>{
-  //   const data = fetchFromAPI(`discover/movie?with_genres${genresToId[title]}`).then((data)=>{setMovies(data?.results)})
-  // }, [title]);
+  useEffect( ()=>{
+    const data = fetchFromAPI(`discover/movie?with_genres${genresToId[title]}`).then((data)=>{setMovies(data?.results)})
+  }, [title]);
   // =============================================================================
 
   // dummy data for popular movies ==============================================
-  useEffect(() => {
-    const data = popularMovies;
-    setMovies(data?.results)
-  }, [title])
+  // useEffect(() => {
+  //   const data = popularMovies;
+  //   setMovies(data?.results)
+  // }, [title])
   // ============================================================================
 
 

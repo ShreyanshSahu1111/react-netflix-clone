@@ -12,16 +12,16 @@ const Main = () => {
   const movie = movies[Math.floor(Math.random()*movies.length)]
 
   // fetched data for popular movies ============================================
-  // useEffect(()=>{
-  //   const data = fetchFromAPI(`discover/movie?page=1`).then( (data) => {setMovies(data.results)});
-  // }, [])
+  useEffect(()=>{
+    const data = fetchFromAPI(`discover/movie?page=1`).then( (data) => {setMovies(data.results)});
+  }, [])
   //=============================================================================
 
   // dummy data for popular movies ==============================================
-  useEffect( () => {
-    const data = popularMovies;
-    setMovies(data?.results)
-  }, [])
+  // useEffect( () => {
+  //   const data = popularMovies;
+  //   setMovies(data?.results)
+  // }, [])
   // ============================================================================
 
   const truncateString = (str, limit) => {
