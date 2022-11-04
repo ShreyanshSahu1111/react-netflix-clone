@@ -15,9 +15,9 @@ const Movie = ({ movie, index }) => {
                 <div className='flex items-center m-3'>
                     {like ? (<FaHeart className='absolute left-2 text-gray-300' />) :
                         (<FaRegHeart className=' text-gray-300' />)}
-                    <p className='text-white text-[200%] font-bold ml-4'>{movie.title}</p>
+                    <p className='text-white text-lg font-bold ml-4'>{movie.title}</p>
                 </div>
-                <div className='m-10'><p className='text-white text-lg '>{truncateString(movie?.overview, 200)}</p></div>
+                <div className='m-10'><p className='xs:hidden sm:text-white text-md '>{truncateString(movie?.overview, 200)}</p></div>
             </div>
         </div>
     )
