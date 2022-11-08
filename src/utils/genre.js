@@ -21,6 +21,21 @@ export const genresToId = {
     "Western": 37,
 }
 
+export const popularGenreArray = [
+    {
+        "id": 28,
+        "name": "Action"
+    },
+    {
+        "id": 35,
+        "name": "Comedy"
+    },
+    {
+        "id": 27,
+        "name": "Horror"
+    },
+]
+
 export const genreArray = [
     {
         "id": 28,
@@ -99,6 +114,7 @@ export const genreArray = [
         "name": "Western"
     }
 ]
+
 
 export const truncateString = (str, limit) => {
     if (str?.length > limit) {

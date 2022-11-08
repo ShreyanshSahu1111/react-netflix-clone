@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from 'react'
 import { popularMovies } from "../utils/dummyData";
 // eslint-disable-next-line
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import { fetchFromAPI, IMAGE_BASE_URL } from "../utils/fetchFromAPI";
 
 const Main = () => {
 
@@ -13,16 +13,16 @@ const Main = () => {
 
   // fetched data for popular movies ============================================
   useEffect(()=>{
-    const data = fetchFromAPI(`discover/movie?page=1`).then( (data) => {setMovies(data.results)});
+    const data = fetchFromAPI(`trending/movie/day`).then( (data) => {setMovies(data.results)});
   }, [])
-  //=============================================================================
+  
 
   // dummy data for popular movies ==============================================
   // useEffect( () => {
   //   const data = popularMovies;
   //   setMovies(data?.results)
   // }, [])
-  // ============================================================================
+  
 
   const truncateString = (str, limit) => {
     if(str?.length>limit){
@@ -37,7 +37,7 @@ const Main = () => {
     <div className='w-full h-[550px] text-white'>
       <div className='w-full h-full'>
         <div className='absolute w-full h-[550px] bg-gradient-to-r from-black'/>
-        <img className='w-full h-[550px]' src={movie?.backdrop_path} alt={movie?.title+" backdrop"} />
+        <img className='w-full h-[550px]' src={IMAGE_BASE_URL+movie?.backdrop_path} alt={movie?.title+" backdrop"} />
         <div className='absolute w-full top-40 p-4 md:p-8'>
           <h1 className='text-3xl md:text-5xl font-bold '>{movie?.title}</h1>
           <div className='my-4'>
@@ -50,7 +50,6 @@ const Main = () => {
           </p>
         </div>
       </div>
-      
     </div>
   )
 }

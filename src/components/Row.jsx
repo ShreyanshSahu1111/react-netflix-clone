@@ -1,26 +1,23 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
-import { popularMovies } from '../utils/dummyData';
 import Movie from './Movie';
 // eslint-disable-next-line
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { fetchFromAPI, IMAGE_BASE_URL } from '../utils/fetchFromAPI';
 // eslint-disable-next-line
-import { genresToId } from '../utils/genre';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 
 
-const Row = ({ title, rowId }) => {
+const Row = ({ title, url, rowId }) => {
 
   const [movies, setMovies] = useState([]);
-  const [like, setLike] = useState(false);
 
   // fetched data for popular movies ============================================
   useEffect( ()=>{
-    const data = fetchFromAPI(`discover/movie?with_genres${genresToId[title]}`).then((data)=>{setMovies(data?.results)})
+    const data = fetchFromAPI(url).then((data)=>{setMovies(data?.results)});
   }, [title]);
-  // =============================================================================
+  
 
   // dummy data for popular movies ==============================================
   // useEffect(() => {
@@ -43,7 +40,7 @@ const Row = ({ title, rowId }) => {
 
   return (
     <div className='row-component m-5'>
-      <h3 className='text-gray-300 font-bold text-lg py-2'>{title}</h3>
+      <h3 className='text-red-700 text-center font-bold text-xl py-2'>{title}</h3>
       <div className=' w-full flex items-center group'>
         <MdChevronLeft
           onClick={slideLeft}
@@ -51,7 +48,7 @@ const Row = ({ title, rowId }) => {
         />
         <div className='flex overflow-x-scroll scrollbar-hide' id={"slider" + rowId}>
           {movies.map((movie, index) => (
-            <Movie movie={movie} key={index} />
+            (movie?.backdrop_path) && <Movie movie={movie} key={index} />
           ))}
         </div>
         <MdChevronRight
