@@ -37,7 +37,7 @@ const Movie = ({ movie, index }) => {
     return (
         <div className=' movieComponent h-[140px] md:h-[200px] lg:h-[250px] min-w-fit relative mx-3 cursor-pointer'>
             <Link to={`/watchMovie/${((truncateString(movie?.title, 70) || truncateString(movie?.name, 70)).replace(/\s/g,'-'))}/${movie?.id}`}>
-                <img className='text-white h-full w-full ' src={IMAGE_BASE_URL + movie?.backdrop_path} alt={movie?.title} />
+                <img className='text-white h-full w-full ' src={IMAGE_BASE_URL + movie?.backdrop_path} alt={movie?.title} loading="lazy"/>
                 <div className='bg-black absolute top-0 left-0 opacity-0  h-full w-full overflow-hidden hover:opacity-70'>
                     <div className='flex items-center m-3'>
                         <p onClick={saveShow}>

@@ -17,4 +17,4 @@ export const fetchFromAPI = async(url) => {
 }
 
 
-const trendingUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
+// const trendingUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
