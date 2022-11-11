@@ -18,7 +18,7 @@ const WatchMovie = () => {
   }, [id]);
 
   useEffect(()=>{
-    fetchFromAPI(`/movie/${id}/similar`).then((data) => { setSimilarMovies(data.results) })
+    fetchFromAPI(`/movie/${id}/similar`).then((data) => { setSimilarMovies(data.results.slice(0,10)) })
   }, [id])
 
   const slideLeft = () => {

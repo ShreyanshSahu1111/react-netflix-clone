@@ -15,7 +15,7 @@ const Row = ({ title, url, rowId }) => {
 
   // fetched data for popular movies ============================================
   useEffect( ()=>{
-    const data = fetchFromAPI(url).then((data)=>{setMovies(data?.results)});
+    const data = fetchFromAPI(url).then((data)=>{setMovies(data?.results?.slice(0,6))});
   }, [title]);
   
 
